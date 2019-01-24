@@ -1,30 +1,32 @@
 # import all functions from the tkinter
-from tkinter import *
-from tkinter import messagebox
-import requests
-import json
 
-''' http://maps.openweathermap.org/maps/2.0/weather/{op}/{z}/{x}/{y} '''
+from tkinter import messagebox
+from tkinter import *
+import requests
+
+
 # function to find weather details
 # of any city using openweathermap api
 def tell_weather():
     # import required modules
     import requests, json
 
-    # enter your api key here
-    api_key = "26e370b153ab65c59460078cebdbbb5b"
+    # Enter your API key here
+    api_key = "2bf44ed05ffb35fabcf74b75d771240c"
 
     # base_url variable to store url
-    base_url = "http://api.openweathermap.org/data/2.0/weather?"
+    base_url = "http://api.openweathermap.org/data/2.5/weather?"
 
-    # take a city name from city_field entry box
+    # Give city name
     city_name = city_field.get()
 
-    # complete_url variable to store complete url address
-    complete_url = base_url + "appid =" + api_key
-    + "&q =" + city_name
+    # complete_url variable to store
+    # complete url address
+    complete_url = base_url + "appid=" + api_key + "&q=" + city_name
 
-
+    # get method of requests module
+    # return response object
+    response = requests.get(complete_url)
     # get method of requests module
     # return response object
     response = requests.get(complete_url)
@@ -61,7 +63,7 @@ def tell_weather():
 
         # insert method inserting the
         # value in the text entry box.
-        temp_field.insert(15, str(current_temperature) + " Kelvin")
+        temp_field.insert(15, str(int(1.8*(current_temperature-273)+32)) + " Fahrenheit")
         atm_field.insert(10, str(current_pressure) + " hPa")
         humid_field.insert(15, str(current_humidiy) + " %")
         desc_field.insert(10, str(weather_description))
@@ -75,11 +77,11 @@ def tell_weather():
                                       "Please enter valid city name")
 
         # clear the content of city_field entry box
-        city_field.delete(0, END)
+        city_field.delete(0,END)
 
 
-    # Function for clearing the
-    # contents of all text entry boxes
+# Function for clearing the
+# contents of all text entry boxes
 def clear_all():
     city_field.delete(0, END)
     temp_field.delete(0, END)
@@ -97,37 +99,37 @@ if __name__ == "__main__":
     root = Tk()
 
     # set the name of tkinter GUI window
-    root.title("Gui Application")
+    root.title("Weather Forcaaster")
+
 
     # Set the background colour of GUI window
     root.configure(background="light green")
 
     # Set the configuration of GUI window
-    root.geometry("425x175")
+    root.geometry("500x250")
 
     # Create a Weather Gui Application label
     headlabel = Label(root, text="Weather Gui Application",
-                      fg='black', bg='red')
+                      fg='black', bg='red',font=("Helvetica", 20))
 
     # Create a City name : label
     label1 = Label(root, text="City name : ",
-                   fg='black', bg='dark green')
+                   fg='black', bg='light green')
 
     # Create a City name : label
     label2 = Label(root, text="Temperature :",
-                   fg='black', bg='dark green')
+                   fg='black', bg='light green')
 
     # Create a atm pressure : label
     label3 = Label(root, text="atm pressure :",
-                   fg='black', bg='dark green')
-
+                   fg='black', bg='light green')
     # Create a humidity : label
     label4 = Label(root, text="humidity :",
-                   fg='black', bg='dark green')
+                   fg='black', bg='light green')
 
     # Create a description :label
     label5 = Label(root, text="description :",
-                   fg='black', bg='dark green')
+                   fg='black', bg='light green')
 
     # grid method is used for placing
     # the widgets at respective positions
