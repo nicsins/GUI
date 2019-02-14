@@ -1,12 +1,13 @@
 # Python program to find current
 # weather details of any city
 # using openweathermap
+''' this was the first step of the process'''
 from tkinter import *
 # import required modules
 import requests, json
 
 
-def tell_weather():
+def get_forecast():
 	# Enter your API key here
 	api_key = "2bf44ed05ffb35fabcf74b75d771240c"
 
@@ -64,10 +65,10 @@ def tell_weather():
 		weather_description = z[0]["description"]
 
 		# print following values
-		print(f" Temperature (in Farehieght) = {int(1.8*(current_temperature-273)+32)}"
-			  f"\n atmospheric pressure (in hPa unit) = {current_pressure}"
-			  f"\n humidity (in percentage) = {current_humidiy}"
-			  f"\n description = {weather_description}")
+		print(f" Temperature (in Fahrenheit) = {int(1.8*(current_temperature-273)+32)}"
+			  f"\n Atmospheric Pressure (in hPa unit) = {current_pressure}"
+			  f"\n Humidity (in percentage) = {current_humidiy}"
+			  f"\n Description = {weather_description}")
 
 	else:
 		print(" City Not Found ")
@@ -147,7 +148,7 @@ if __name__ == "__main__":
     # Create a Submit Button and attached
     # to tell_weather function
     button1 = Button(root, text="Submit", bg="red",
-                     fg="black", command=tell_weather)
+                     fg="black", command=get_forecast)
 
     # Create a Clear Button and attached
     # to clear_all function

@@ -13,7 +13,7 @@ import requests,json
 
 def tell_weather():
 
-    # Enter your API key here
+    # Enter API key here
     api_key = "2bf44ed05ffb35fabcf74b75d771240c"
 
     # base_url variable to store url
@@ -109,37 +109,37 @@ if __name__ == "__main__":
     root.geometry("500x250")
 
     # Create a Weather Gui Application label
-    headlabel = Label(root, text="Weather GUI",
-                      fg='black', bg='red',font=("Helvetica", 20))
+    header = Label(root, text="Weather GUI",
+                   fg='black', bg='red', font=("Arial Black", 20))
 
-    # Create a City name : label
-    label1 = Label(root, text="City name : ",
-                   fg='black', bg='light green')
+    # Create a City name
+    city_label = Label(root, text="City name : ",
+                       fg='black', bg='light green')
 
-    # Create a City name : label
-    label2 = Label(root, text="Temperature :",
-                   fg='black', bg='light green')
+    # Create a City name
+    city_name_label = Label(root, text="Temperature :",
+                            fg='black', bg='light green')
 
-    # Create a atm pressure : label
-    label3 = Label(root, text="atm pressure :",
-                   fg='black', bg='light green')
-    # Create a humidity : label
-    label4 = Label(root, text="Humidity :",
-                   fg='black', bg='light green')
+    # Create a atm pressure
+    atm_label = Label(root, text="atm pressure :",
+                      fg='black', bg='light green')
+    # Create a humidity
+    humidity_label = Label(root, text="Humidity :",
+                           fg='black', bg='light green')
 
-    # Create a description :label
-    label5 = Label(root, text="Description :",
-                   fg='black', bg='light green')
+    # Create a current conditions
+    current_label = Label(root, text="Current Conditions :",
+                          fg='black', bg='light green')
 
     # grid method is used for placing
     # the widgets at respective positions
     # in table like structure .
-    headlabel.grid(row=0, column=1)
-    label1.grid(row=1, column=0, sticky="E")
-    label2.grid(row=3, column=0, sticky="E")
-    label3.grid(row=4, column=0, sticky="E")
-    label4.grid(row=5, column=0, sticky="E")
-    label5.grid(row=6, column=0, sticky="E")
+    header.grid(row=0, column=1)
+    city_label.grid(row=1, column=0, sticky="E")
+    city_name_label.grid(row=3, column=0, sticky="E")
+    atm_label.grid(row=4, column=0, sticky="E")
+    humidity_label.grid(row=5, column=0, sticky="E")
+    current_label.grid(row=6, column=0, sticky="E")
 
     # Create a text entry box
     # for filling or typing the information.
