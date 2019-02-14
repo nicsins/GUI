@@ -61,8 +61,7 @@ import json, requests
 https://proapi.whitepages.com/3.0/person?name=Giaan+Qiuntero&address.city=Lynden&address.state_code=WA&api_key=KEYVAL
 
 '''
-api_key = '514822e861b8402a93f1346b402429e7'
-base_url = f"https://proapi.whitepages.com/3.0/person?"
+api_key = '1a4dede691984f9282a1162ca5ca9b6c'
 
 call_list = ['name',
              'address.street_line_1',
@@ -77,16 +76,26 @@ call_list = ['name',
              'search.alternate_name']
 
 
+
 def make_call():
     name =input('enter name')
-    street1 = input('enter line1 address')
-    street2 = input('enter line 2 address')
+    # street1 = input('enter line1 address')
+    # street2 = input('enter line 2 address')
     city =input('enter city')
     postal=input('enter zip code')
-    state=input('enter state')
-    country=input('enter 2 letter country code')
-    info=[name,street1,street2,city,postal,state,country,"true","true","phonetic","true"]
-    
+    state=input('enter 2 letter state code')
+    # country=input('enter 2 letter country code')
+    # info=[name,street1,street2,city,postal,state,country,"true","true","phonetic","true"]
+
+    complete_url = f"https://proapi.whitepages.com/3.0/person?name={name}&address.city={city}&address.postal_code={postal}&address.state_code={state}&search.historical=true$search.metro=true&search.alternate_name=true&api_key={api_key}"
+
+    response = requests.get(complete_url)
+    content=response.content
+
+
+
+    print(content)
+
 
 if __name__ == '__main__':
     make_call()

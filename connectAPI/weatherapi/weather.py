@@ -20,6 +20,7 @@ def tell_weather():
 	# complete url address
 	complete_url = base_url + "appid=" + api_key + "&q=" + city_name
 
+
 	# get method of requests module
 	# return response object
 	response = requests.get(complete_url)
